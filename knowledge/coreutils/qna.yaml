@@ -1,0 +1,85 @@
+version: 3
+created_by: user
+domain: coreutils
+seed_examples:
+  - context: |
+      ## 1. `ls` — List Directory Contents
+      Lists files and directories in the current directory or given path. It's one of the most frequently used commands to inspect file structures.
+      ### Common Options:
+      - `ls -l`: Long listing format showing permissions, size, and timestamps.
+      - `ls -a`: Includes hidden files (those starting with a dot).
+      - `ls -lh`: Human-readable file sizes like 1K, 2M.
+      - `ls -lt`: Sorts files by modification time.
+    questions_and_answers:
+      - question: What does the ls -la command do?
+        answer: It lists all files, including hidden ones, in a long listing format with detailed information like permissions, owner, size, and timestamps.
+      - question: How can you display file sizes in a human-readable format?
+        answer: Use ls -lh to display sizes like KB, MB, etc., instead of bytes.
+      - question: How do you list only hidden files?
+        answer: Use ls -d .?* to list only hidden files in the current directory.
+  - context: |
+      ## 2. `cp` — Copy Files and Directories
+      Copies files or directories from one location to another. It supports overwriting, preserving attributes, and recursive copying.
+      ### Common Options:
+      - `cp file1 file2`: Copies file1 to file2.
+      - `cp -r dir1 dir2`: Recursively copy contents of dir1 to dir2.
+      - `cp -u`: Copy only when the source file is newer.
+      - `cp -p`: Preserve file mode, ownership, and timestamps.
+    questions_and_answers:
+      - question: What does cp -r dir1 dir2 do?
+        answer: It recursively copies the directory dir1 and its contents to a new directory dir2.
+      - question: How do you copy a file named notes.txt to a directory called backup/?
+        answer: Use cp notes.txt backup/ to copy the file to the backup directory.
+      - question: Can you overwrite a file using cp?
+        answer: Yes, cp will overwrite the destination file without prompting unless you use the -i option for interactive mode.
+  - context: |
+      ## 4. `rm` — Remove Files or Directories
+      Deletes files or directories permanently. There’s no undo, so caution is needed.
+      ### Common Options:
+      - `rm file.txt`: Removes a file.
+      - `rm -r folder/`: Recursively removes directory.
+      - `rm -f`: Forces deletion without prompt.
+      - `rm -rf /`: *Dangerous! Deletes everything recursively without warning.*
+    questions_and_answers:
+      - question: How do you remove a directory and all its contents?
+        answer: Use rm -r dir/ to remove the directory and everything inside it recursively.
+      - question: What does rm -f do?
+        answer: It forces the removal of files without prompting for confirmation, even if the file is write-protected.
+      - question: Is rm reversible?
+        answer: No, rm permanently deletes files unless you have a backup or recovery mechanism in place.
+  - context: |
+      ## 5. `touch` — Create or Update Files
+      Updates file timestamps or creates empty files. Useful in scripting and testing.
+      ### Common Options:
+      - `touch new.txt`: Creates a file if it doesn’t exist.
+      - `touch -c file.txt`: Updates timestamp only if the file exists.
+    questions_and_answers:
+      - question: What does the touch command do?
+        answer: It creates a new empty file if it doesn’t exist or updates the timestamp of an existing file.
+      - question: How do you use touch to create multiple files at once?
+        answer: Use touch file1.txt file2.txt to create both files in one command.
+      - question: How do you avoid creating a new file with touch if it doesn’t already exist?
+        answer: Use touch -c filename, which updates the timestamp only if the file exists.
+  - context: |
+      ## 6. `cat` — Concatenate and Display Files
+      Displays the content of files, often used with redirection and piping.
+      ### Common Options:
+      - `cat file.txt`: Prints file content.
+      - `cat file1 file2 > merged.txt`: Concatenates files.
+      - `cat -n file.txt`: Number all output lines.
+    questions_and_answers:
+      - question: What does cat do in Unix?
+        answer: It reads files sequentially and writes their content to the standard output.
+      - question: How can you use cat to combine two files into a third?
+        answer: Use cat file1.txt file2.txt > combined.txt to concatenate and save to a new file.
+      - question: How do you number all output lines when using cat?
+        answer: Use cat -n filename to display the contents with line numbers.
+document_outline: For knowledge tests
+document:
+  repo: https://github.com/HarithaIBM/coreutilsInfo.git
+  commit: 74b2d54
+  patterns:
+    - "*.txt"
+    - "*.md"
+    - "docs/*.txt"
+    - "docs/*.md"
